@@ -93,3 +93,4 @@ resources:
 plugins:
   - serverless-webpack
   - serverless-apigw-binary
+  - serverless-offline

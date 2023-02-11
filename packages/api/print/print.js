@@ -25,8 +25,7 @@ module.exports = (() => {
 
 				const puppeteer = chromium.puppeteer;
 
-				const body = JSON.parse(Buffer.from(parser.getBody(), 'base64').toString());
-
+				const body = JSON.parse(process.env.IS_OFFLINE ? parser.getBody() : Buffer.from(parser.getBody(), 'base64').toString());
 				const source = body.source || null;
 				const html = body.html || null;
 				const settings = body.settings || null;
@@ -45,7 +44,7 @@ module.exports = (() => {
 
 					context.browser = await puppeteer.launch({
 						args: chromium.args,
-						executablePath: await chromium.executablePath,
+            executablePath: process.env.IS_OFFLINE ? "/usr/bin/chromium-browser" : await chromium.executablePath,
 						ignoreHTTPSErrors: true
 					});
 

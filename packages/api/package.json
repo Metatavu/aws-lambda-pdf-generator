@@ -18,7 +18,8 @@
     "predeploy:prod": "make clean && make all",
     "deploy:stage": "serverless deploy --stage stage",
     "deploy:prod": "serverless deploy --stage prod",
-    "version": "gulp embed-version"
+    "version": "gulp embed-version",
+    "offline": "serverless offline --host 0.0.0.0"
   },
   "dependencies": {
     "@barchart/common-js": "^4.21.0",
@@ -31,7 +32,8 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-replace": "^0.5.4",
-    "puppeteer": "10.1.0"
+    "puppeteer": "10.1.0",
+    "serverless-offline": "^12.0.4"
   },
   "license": "MIT",
   "private": true
